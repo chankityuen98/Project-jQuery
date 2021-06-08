@@ -1,0 +1,29 @@
+body{
+    background-image: url("https://pavbca.com/walldb/original/a/d/0/142420.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.box{
+    width: inherit;
+    height: 50px;
+}
+
+#image{
+    width: 426px;
+    height: 550px;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+#image > img{
+    width: inherit;
+    height: inherit; 
+}
+
+.container{
+    width: 800px;
+}
+
+.font-set{
+    color: white;
+}

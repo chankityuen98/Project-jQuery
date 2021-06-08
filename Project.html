@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../9. Jquery 101/Project.css">
+
+</head>
+<body>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div id="image" class="char-image col-3 ">
+                
+            </div>
+        </div>
+        <div class="row ">
+            <div id="name" class="char-name box col-3 font-set ">
+                Name：
+            </div>
+        </div>
+        <div class="row ">
+            <div id="height" class="char-height box col-3 font-set ">
+                Height:
+            </div>
+        </div>
+        <div class="row ">
+            <div id="mass" class="char-mass box col-3 font-set ">
+                Mass:
+            </div>
+        </div>
+        <div class="row ">
+            <div id="gender" class="char-gender box col-3 font-set ">
+                Gender:
+            </div>
+        </div>
+        <div class="row ">
+            <div id="home" class="char-home box col-3 font-set ">
+                Home Land:
+            </div>
+        </div>
+        <button>Click to change character!</button>
+       
+    </div>
+    
+
+    
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        const $image = $("#image");
+        const $name = $("#name");
+        const $height = $("#height");
+        const $mass  = $("#mass");
+        const $gender = $("#gender");
+        const $home  = $("#home");
+        
+        function randomizeCharacter(){
+                const randNum = Math.ceil(Math.random() * 88)
+                $.get(`https://akabab.github.io/starwars-api/api/id/${randNum}.json`, function(data){
+                $image.html(`<img src="${data['image']}" alt="Character Image">`)
+                $name.html(`<p>Name: ${data['name']}</p>`)
+                $height.html(`<p>Height: ${data['height']}</p>`)
+                $mass.html(`<p>Mass: ${data['mass']}</p>`)
+                $gender.html(`<p>Gender: ${data['gender']}</p>`)
+                $home.html(`<p>Home Land: ${data['homeworld']}</p>`)
+            })
+        }
+       
+        $(document).ready(function(){
+            $("button").on("click", randomizeCharacter)
+    
+        })
+    </script>
+</body>
+</html>
